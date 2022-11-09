@@ -15,6 +15,7 @@ let pngs =  imgs.filter(img=>{
 
 let str = `let pngs = ${JSON.stringify(pngs)}`
 
+fs.mkdirSync('./dist')
 fs.writeFileSync('./dist/index.js',str,'utf-8')
 fs.copyFileSync('./index.html','./dist/index.html')
 fs.cp('./imgs/','./dist/')
