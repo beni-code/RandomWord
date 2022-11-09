@@ -1,1 +1,1 @@
-let pngs = ["./imgs/u1381.png","./imgs/u1387.png","./imgs/u1391.png","./imgs/u1393.png","./imgs/u1403.png","./imgs/u1429.png","./imgs/u1439.png","./imgs/u1449.png","./imgs/u1455.png","./imgs/u1461.png","./imgs/u1465.png","./imgs/u1467.png","./imgs/u1477.png"]
+let pngs = ["./imgs/a piece of.png","./imgs/curve.png","./imgs/form.png","./imgs/geometry.png","./imgs/implicit.png","./imgs/intuitive.png","./imgs/lift.png"]
