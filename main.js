@@ -22,4 +22,5 @@ if (!fs.existsSync('./dist')) {
 }
 fs.writeFileSync('./dist/index.js', str, 'utf-8')
 fs.copyFileSync('./index.html', './dist/index.html')
+fs.copyFileSync("./loading.gif",'./dist/loading.gif')
 fsExtra.copySync('./imgs', './dist/imgs')
