@@ -11,7 +11,7 @@ jobs:
   # build-and-deploy 为任务的ID
   build-and-deploy:
     # 运行所需要的环境
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
 
     steps:
       # 步骤名
@@ -25,8 +25,9 @@ jobs:
       # 执行npm脚本打包项目
       - name: Install and Build
         run: |
+          npm i
           node main.js
-      
+
       # 执行JamesIves/github-pages-deploy-action将项目发布到Github Pages
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
