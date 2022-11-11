@@ -15,7 +15,10 @@
 </head>
 
 <body>
-<div id="app" style="width: 470px;display: flex;justify-content: center;align-items: center"><img :src="imgSrc" :style="`width: ${width};margin-top: ${marginTop}`" alt="" @click="random"></div>
+<div id="app" style="width: 470px;display: flex;justify-content: center;align-items: center;flex-direction: column">
+    <span @mouseenter="()=>{imgVisible = true}" @mouseleave="()=>{imgVisible = false}" style="padding: 10px;font-size: 20px">{{name}}</span>
+    <img v-if="imgVisible" :src="imgSrc" :style="`width: ${width};margin-top: ${marginTop}`" alt="" @click="random">
+</div>
 
 </body>
 <script src="./index.js"></script>
@@ -27,10 +30,12 @@
         el: '#app',
         data() {
             return {
+                imgVisible: false,
                 pngs,
                 width: '100%',
                 marginTop: 0,
-                imgSrc: ''
+                imgSrc: '',
+                name: ''
             }
         },
         mounted() {
@@ -46,7 +51,9 @@
                 this.width = '20%'
                 this.marginTop = '100px'
                 this.imgSrc = loading
-                fetch(this.pngs[this.randomIndex()]).then(res=>{
+                let i = this.randomIndex()
+                fetch(this.pngs[i].url).then(res=>{
+                    this.name = this.pngs[i].name
                     return res.blob()
                 }).then(data=>{
                     let url = URL.createObjectURL(data);
