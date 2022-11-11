@@ -35,7 +35,8 @@
                 width: '100%',
                 marginTop: 0,
                 imgSrc: '',
-                name: ''
+                name: '',
+                hasRandoms: []
             }
         },
         mounted() {
@@ -53,6 +54,10 @@
                 this.imgSrc = loading
                 this.imgVisible = true
                 let i = this.randomIndex()
+                while (this.hasRandoms.includes(i)){
+                    i = this.randomIndex()
+                }
+                this.hasRandoms.push(i)
                 fetch(this.pngs[i].url).then(res=>{
                     this.name = this.pngs[i].name
                     return res.blob()
