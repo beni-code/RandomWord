@@ -18,6 +18,10 @@
 <div id="app" style="width: 470px;display: flex;justify-content: center;align-items: center;flex-direction: column">
     <span @mouseenter="()=>{imgVisible = true}" @mouseleave="()=>{imgVisible = false}" style="padding: 10px;font-size: 20px" @click="random">{{name}}</span>
     <img v-if="imgVisible" :src="imgSrc" :style="`width: ${width};margin-top: ${marginTop}`" alt="" @click="random">
+
+    <div style="position: fixed;bottom: 10px;right: 10px;">
+        <input type="checkbox" v-model="imgVisible" style="width: 20px;height: 20px" name="" id="">
+    </div>
 </div>
 
 </body>
@@ -30,6 +34,7 @@
         el: '#app',
         data() {
             return {
+                checkbox: false,
                 imgVisible: false,
                 pngs,
                 width: '100%',
@@ -72,6 +77,9 @@
             randomIndex() {
                 return Math.floor(Math.random() * this.size);    // 可均衡获取 0 到 size 的随机整数。
             }
+        },
+        watch: {
+
         }
     })
 </script>
