@@ -51,11 +51,13 @@
                 this.width = '20%'
                 this.marginTop = '100px'
                 this.imgSrc = loading
+                this.imgVisible = true
                 let i = this.randomIndex()
                 fetch(this.pngs[i].url).then(res=>{
                     this.name = this.pngs[i].name
                     return res.blob()
                 }).then(data=>{
+                    this.imgVisible = false
                     let url = URL.createObjectURL(data);
                     this.width = '100%'
                     this.marginTop = '0px'
