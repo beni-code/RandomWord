@@ -11,7 +11,10 @@ let pngs = imgs.filter(img => {
         return false;
     }
 }).map(png => {
-    return `./imgs/${png}`
+    return {
+        name: path.basename(png,'.png'),
+        url:`./imgs/${png}`
+    }
 })
 
 let str = `let pngs = ${JSON.stringify(pngs)}`
